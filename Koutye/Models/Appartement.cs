@@ -4,9 +4,9 @@
     {
         public int id { get; set; }
         public string description { get; set; }
-        public Adresse adresse { get; set; }
+        public virtual Adresse adresse { get; set; }
 
-        public Utilisateur utilisateur { get; set; }
+        public virtual Utilisateur utilisateur { get; set; }
 
         public IEnumerable<ImageAppartement> imageAppartements { get; set; }
 

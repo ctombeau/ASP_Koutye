@@ -16,7 +16,7 @@
 
         public DateTime logoutDate { get; set; }
 
-        public TypeUtilisateur typeUtilisateur { get; set; }
+        public virtual TypeUtilisateur typeUtilisateur { get; set; }
 
         public IEnumerable<Appartement> appartements { get; set;}
     }
