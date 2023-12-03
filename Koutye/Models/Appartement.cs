@@ -1,8 +1,13 @@
-﻿namespace Koutye.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+
+namespace Koutye.Models
 {
     public class Appartement
     {
-        public int id { get; set; }
+        [Key]
+        [Column("appartement_id")]
+        public int appartementId { get; set; }
         public string description { get; set; }
         public virtual Adresse adresse { get; set; }
 

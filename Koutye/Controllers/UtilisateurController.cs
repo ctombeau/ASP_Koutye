@@ -1,4 +1,5 @@
-﻿using Koutye.Data;
+﻿using Koutye.Dao;
+using Koutye.Data;
 using Koutye.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +16,7 @@ namespace Koutye.Controllers
   "password": "Edma1988",
   "photo": "",
   "phone": "38051274",
-  "modificationDate": nul,
+  "modificationDate": null,
   "login_date": null,
   "logoutDate": null
   
@@ -36,7 +37,7 @@ namespace Koutye.Controllers
             //context.SaveChanges();
             //return util;
             //return View();
-            return null;
+            return new UtilisateurDao().addUser(util);
         }
     }
 }

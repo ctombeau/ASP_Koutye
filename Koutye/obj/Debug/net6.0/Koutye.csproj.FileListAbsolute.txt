@@ -85,3 +85,4 @@ C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\obj\Debug\net6.0\refint\Kout
 C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\obj\Debug\net6.0\Koutye.pdb
 C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\obj\Debug\net6.0\Koutye.genruntimeconfig.cache
 C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\obj\Debug\net6.0\ref\Koutye.dll
+C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\bin\Debug\net6.0\web.config

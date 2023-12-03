@@ -4,6 +4,7 @@ using Koutye.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Koutye.Migrations
 {
     [DbContext(typeof(KoutyeContext))]
-    partial class KoutyeContextModelSnapshot : ModelSnapshot
+    [Migration("20231203100807_FourthCreate")]
+    partial class FourthCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -201,6 +204,7 @@ namespace Koutye.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("photo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("prenom")

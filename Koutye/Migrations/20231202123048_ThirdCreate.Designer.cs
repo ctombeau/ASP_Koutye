@@ -4,6 +4,7 @@ using Koutye.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Koutye.Migrations
 {
     [DbContext(typeof(KoutyeContext))]
-    partial class KoutyeContextModelSnapshot : ModelSnapshot
+    [Migration("20231202123048_ThirdCreate")]
+    partial class ThirdCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,27 +27,26 @@ namespace Koutye.Migrations
 
             modelBuilder.Entity("AppartementFerme", b =>
                 {
-                    b.Property<int>("appartementsappartementId")
+                    b.Property<int>("appartementsid")
                         .HasColumnType("int");
 
-                    b.Property<int>("fermesfermeId")
+                    b.Property<int>("fermesid")
                         .HasColumnType("int");
 
-                    b.HasKey("appartementsappartementId", "fermesfermeId");
+                    b.HasKey("appartementsid", "fermesid");
 
-                    b.HasIndex("fermesfermeId");
+                    b.HasIndex("fermesid");
 
                     b.ToTable("AppartementFerme");
                 });
 
             modelBuilder.Entity("Koutye.Models.Adresse", b =>
                 {
-                    b.Property<int>("adresseId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("adresse_id");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("adresseId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("commune")
                         .IsRequired()
@@ -65,47 +67,45 @@ namespace Koutye.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("adresseId");
+                    b.HasKey("id");
 
                     b.ToTable("adresse");
                 });
 
             modelBuilder.Entity("Koutye.Models.Appartement", b =>
                 {
-                    b.Property<int>("appartementId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("appartement_id");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("appartementId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<int>("adresseId")
+                    b.Property<int>("adresseid")
                         .HasColumnType("int");
 
                     b.Property<string>("description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("utilisateurId")
+                    b.Property<int>("utilisateurid")
                         .HasColumnType("int");
 
-                    b.HasKey("appartementId");
+                    b.HasKey("id");
 
-                    b.HasIndex("adresseId");
+                    b.HasIndex("adresseid");
 
-                    b.HasIndex("utilisateurId");
+                    b.HasIndex("utilisateurid");
 
                     b.ToTable("appartement");
                 });
 
             modelBuilder.Entity("Koutye.Models.Ferme", b =>
                 {
-                    b.Property<int>("fermeId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("ferme_id");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("fermeId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<DateTime>("debut")
                         .HasColumnType("datetime2");
@@ -116,21 +116,20 @@ namespace Koutye.Migrations
                     b.Property<double>("montant")
                         .HasColumnType("float");
 
-                    b.HasKey("fermeId");
+                    b.HasKey("id");
 
                     b.ToTable("ferme");
                 });
 
             modelBuilder.Entity("Koutye.Models.ImageAppartement", b =>
                 {
-                    b.Property<int>("imageId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("image_id");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("imageId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<int>("appartementId")
+                    b.Property<int>("appartementid")
                         .HasColumnType("int");
 
                     b.Property<string>("description_image")
@@ -141,39 +140,37 @@ namespace Koutye.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("imageId");
+                    b.HasKey("id");
 
-                    b.HasIndex("appartementId");
+                    b.HasIndex("appartementid");
 
                     b.ToTable("imageAppartement");
                 });
 
             modelBuilder.Entity("Koutye.Models.TypeUtilisateur", b =>
                 {
-                    b.Property<int>("typeId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("type_id");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("typeId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("nomType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("typeId");
+                    b.HasKey("Id");
 
                     b.ToTable("typeUtilisateur");
                 });
 
             modelBuilder.Entity("Koutye.Models.Utilisateur", b =>
                 {
-                    b.Property<int>("utilisateurId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("utilisateur_id");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("utilisateurId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("email")
                         .IsRequired()
@@ -201,36 +198,36 @@ namespace Koutye.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("photo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("prenom")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("typeUtilisateurtypeId")
+                    b.Property<int>("typeUtilisateurId")
                         .HasColumnType("int");
 
                     b.Property<string>("username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("utilisateurId");
+                    b.HasKey("id");
 
-                    b.HasIndex("typeUtilisateurtypeId");
+                    b.HasIndex("typeUtilisateurId");
 
                     b.ToTable("utilisateur");
                 });
 
             modelBuilder.Entity("Koutye.Models.VideoAppartement", b =>
                 {
-                    b.Property<int>("videoId")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("video_id");
+                        .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("videoId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
-                    b.Property<int>("appartementId")
+                    b.Property<int>("appartementid")
                         .HasColumnType("int");
 
                     b.Property<string>("description_video")
@@ -241,9 +238,9 @@ namespace Koutye.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("videoId");
+                    b.HasKey("id");
 
-                    b.HasIndex("appartementId");
+                    b.HasIndex("appartementid");
 
                     b.ToTable("videoAppartement");
                 });
@@ -252,13 +249,13 @@ namespace Koutye.Migrations
                 {
                     b.HasOne("Koutye.Models.Appartement", null)
                         .WithMany()
-                        .HasForeignKey("appartementsappartementId")
+                        .HasForeignKey("appartementsid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Koutye.Models.Ferme", null)
                         .WithMany()
-                        .HasForeignKey("fermesfermeId")
+                        .HasForeignKey("fermesid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
@@ -267,13 +264,13 @@ namespace Koutye.Migrations
                 {
                     b.HasOne("Koutye.Models.Adresse", "adresse")
                         .WithMany("appartements")
-                        .HasForeignKey("adresseId")
+                        .HasForeignKey("adresseid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Koutye.Models.Utilisateur", "utilisateur")
                         .WithMany("appartements")
-                        .HasForeignKey("utilisateurId")
+                        .HasForeignKey("utilisateurid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -286,7 +283,7 @@ namespace Koutye.Migrations
                 {
                     b.HasOne("Koutye.Models.Appartement", "appartement")
                         .WithMany("imageAppartements")
-                        .HasForeignKey("appartementId")
+                        .HasForeignKey("appartementid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -297,7 +294,7 @@ namespace Koutye.Migrations
                 {
                     b.HasOne("Koutye.Models.TypeUtilisateur", "typeUtilisateur")
                         .WithMany("utilisateurs")
-                        .HasForeignKey("typeUtilisateurtypeId")
+                        .HasForeignKey("typeUtilisateurId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -308,7 +305,7 @@ namespace Koutye.Migrations
                 {
                     b.HasOne("Koutye.Models.Appartement", "appartement")
                         .WithMany("videoAppartements")
-                        .HasForeignKey("appartementId")
+                        .HasForeignKey("appartementid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

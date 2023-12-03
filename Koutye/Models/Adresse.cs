@@ -1,8 +1,13 @@
-﻿namespace Koutye.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Koutye.Models
 {
     public class Adresse
     {
-        public int id { get; set; }
+        [Key]
+        [Column("adresse_id")]
+        public int adresseId { get; set; }
         public int numero { get; set; }
         public string commune { get; set; }
         public string departement { get; set; }
