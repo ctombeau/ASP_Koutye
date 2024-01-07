@@ -86,3 +86,8 @@ C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\obj\Debug\net6.0\Koutye.pdb
 C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\obj\Debug\net6.0\Koutye.genruntimeconfig.cache
 C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\obj\Debug\net6.0\ref\Koutye.dll
 C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\bin\Debug\net6.0\web.config
+C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\lenovo\Documents\Projets\Asp\Koutye\Koutye\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll

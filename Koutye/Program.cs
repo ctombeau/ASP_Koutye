@@ -1,4 +1,5 @@
 using Koutye.Data;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseAuthorization();
+
+//app.MapIdentiyApi<IdentityUser>();
 
 app.MapControllers();
 

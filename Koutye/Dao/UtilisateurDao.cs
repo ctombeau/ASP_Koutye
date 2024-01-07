@@ -1,16 +1,9 @@
-﻿using Koutye.Data;
-using Koutye.Models;
+﻿using Koutye.Models;
 
 namespace Koutye.Dao
 {
-    public class UtilisateurDao
+    public interface UtilisateurDao
     {
-        KoutyeContext koutyeContext = new KoutyeContext();
-        public Utilisateur addUser(Utilisateur utilisateur) 
-        {
-            koutyeContext.Add(utilisateur);
-            koutyeContext.SaveChanges();
-            return utilisateur;
-        }
+        public Utilisateur addUser(Utilisateur utilisateur);
     }
 }
