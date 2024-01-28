@@ -1,5 +1,6 @@
 ﻿using Koutye.Dao;
 using Koutye.Data;
+using Koutye.Dto;
 using Koutye.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -31,26 +32,31 @@ namespace Koutye.Controllers
         [Route("/user/add")]
         [Produces("application/json")]
         [Consumes("application/json")]
-        public Utilisateur AddUser(Utilisateur util)
+        public Utilisateur AddUser([FromBody] UtilisateurDto util)
         {
             Console.WriteLine(util.nom);
-            /*
+            Console.WriteLine(util.prenom);
+            Console.WriteLine(util.username);
+            Console.WriteLine(util.password);
+            Console.WriteLine(util.email);
+            Console.WriteLine(util.phone);
+            Console.WriteLine(util.type);
+            
+            
             if(ModelState.IsValid) 
             {
                 Console.WriteLine(util.ToString());
+                UtilisateurDaoImpl utilDao = new UtilisateurDaoImpl();
+                utilDao.addUser(util);
             }
             else
             {
                 Console.WriteLine("Le modele n'est pas valide");
             }
-            */
-            UtilisateurDaoImpl utilDao = new UtilisateurDaoImpl();
-            utilDao.addUser(util);
-             //context.Utilisateurs.Add(util);
-            //context.SaveChanges();
-            //return util;
-            //return View();
-            //return new UtilisateurDao().addUser(util);
+            
+
+            
+
             return null;
         }
     }

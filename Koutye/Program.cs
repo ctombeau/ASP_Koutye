@@ -1,4 +1,5 @@
 using Koutye.Data;
+using Koutye.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

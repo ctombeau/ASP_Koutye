@@ -1,9 +1,12 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Koutye.Models
 {
+    [Index(nameof(username),nameof(email), IsUnique = true)]
     public class Utilisateur
     {
         [Key]
@@ -28,6 +31,8 @@ namespace Koutye.Models
         public string? photo { get; set; }
         public string? phone { get; set; }
 
+        public DateTime? creationDate { get; set; }
+
        // [DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime? modificationDate { get; set; }
@@ -38,7 +43,7 @@ namespace Koutye.Models
 
         public DateTime? logoutDate { get; set; }
 
-        public virtual TypeUtilisateur typeUtilisateur { get; set; }
+        public virtual TypeUtilisateur? typeUtilisateur { get; set; }
 
         public IEnumerable<Appartement>? appartements { get; set;}
     }

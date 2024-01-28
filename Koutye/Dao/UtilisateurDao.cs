@@ -1,9 +1,16 @@
-﻿using Koutye.Models;
+﻿using Koutye.Dto;
+using Koutye.Models;
 
 namespace Koutye.Dao
 {
     public interface UtilisateurDao
     {
-        public Utilisateur addUser(Utilisateur utilisateur);
+        public UtilisateurDto addUser(UtilisateurDto utilisateur);
+        public string cryptPassword(string password);
+        public bool verifyPassword(string passwordBase,string passwordParameter);
+
+       public UtilisateurDto findUtilisateurByUsername(string username);
+
+       public UtilisateurDto findUtilisateurByEmail(string email);
     }
 }

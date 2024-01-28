@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Koutye")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c586fad30c60272acb0e39cf0e9a253da5937c20")]
 [assembly: System.Reflection.AssemblyProductAttribute("Koutye")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Koutye")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

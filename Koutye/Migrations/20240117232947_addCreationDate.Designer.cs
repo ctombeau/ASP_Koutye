@@ -4,6 +4,7 @@ using Koutye.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Koutye.Migrations
 {
     [DbContext(typeof(KoutyeContext))]
-    partial class KoutyeContextModelSnapshot : ModelSnapshot
+    [Migration("20240117232947_addCreationDate")]
+    partial class addCreationDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -180,7 +183,7 @@ namespace Koutye.Migrations
 
                     b.Property<string>("email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("login_date")
                         .HasColumnType("datetime2");
@@ -214,14 +217,11 @@ namespace Koutye.Migrations
 
                     b.Property<string>("username")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("utilisateurId");
 
                     b.HasIndex("typeUtilisateurtypeId");
-
-                    b.HasIndex("username", "email")
-                        .IsUnique();
 
                     b.ToTable("utilisateur");
                 });

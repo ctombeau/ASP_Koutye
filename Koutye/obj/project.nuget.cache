@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "wIxI86PCCk7qV+Wzrpg7mV/qunU3+BDFZl13s8sqSvPMpBkVJxLEu3fC5cEybu1rIPUEPj6LDS5X69OaIp87uA==",
+  "dgSpecHash": "ZvnaI1AmEcT2kaQI2352A4EIFwe1d1F+LkOBKOsETkOT5CW05O0Qw3PQtxjhqI/StzO58t4CRPgNoXLZjm4UmA==",
   "success": true,
   "projectFilePath": "C:\\Users\\lenovo\\Documents\\Projets\\Asp\\Koutye\\Koutye\\Koutye.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lenovo\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
+    "C:\\Users\\lenovo\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.25\\microsoft.aspnetcore.cryptography.internal.6.0.25.nupkg.sha512",
     "C:\\Users\\lenovo\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\6.0.25\\microsoft.aspnetcore.cryptography.keyderivation.6.0.25.nupkg.sha512",
