@@ -2,6 +2,7 @@
 using Koutye.Data;
 using Koutye.Dto;
 using Koutye.Models;
+using Koutye.Utils;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -45,7 +46,6 @@ namespace Koutye.Controllers
             
             if(ModelState.IsValid) 
             {
-                Console.WriteLine(util.ToString());
                 UtilisateurDaoImpl utilDao = new UtilisateurDaoImpl();
                 utilDao.addUser(util);
             }
@@ -54,10 +54,15 @@ namespace Koutye.Controllers
                 Console.WriteLine("Le modele n'est pas valide");
             }
             
-
-            
-
             return null;
+        }
+
+        [HttpGet]
+        [Route("/file")]
+        public String uploadFile(IFormFile file)
+        {
+            FileUpload fileUpload = new FileUpload();
+            return fileUpload.uploadPicture(file);
         }
     }
 }

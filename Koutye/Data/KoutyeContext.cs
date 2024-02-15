@@ -1,11 +1,19 @@
 ﻿using Koutye.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 
 namespace Koutye.Data
 {
-    public class KoutyeContext:DbContext
+    public class KoutyeContext: IdentityDbContext
     {
+        public KoutyeContext()
+        { 
+        
+        }
+        public KoutyeContext(DbContextOptions<KoutyeContext> options): base(options)
+        {
+        }
         public DbSet<Utilisateur> utilisateur { get; set; }
         public DbSet<TypeUtilisateur> typeUtilisateur { get; set; }
 

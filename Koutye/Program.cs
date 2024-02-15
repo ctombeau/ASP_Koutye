@@ -5,6 +5,15 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var connectionString = builder.Configuration.GetConnectionString("KoutyeContext") ?? throw new InvalidOperationException("Connection string 'KoutyeContext' not found.");
+
+builder.Services.AddDbContext<KoutyeContext>(options =>
+    options.UseSqlServer(connectionString));
+
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<KoutyeContext>();
+
 // Add services to the container.
 /*
 builder.Services.AddDbContext<KoutyeContext>(options =>
@@ -24,6 +33,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseAuthentication();;
 
 app.UseAuthorization();
 

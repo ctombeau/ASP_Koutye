@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -26,10 +27,13 @@ namespace Koutye.Models
         public string email { get; set; }
 
         [Required]
+        [DataType(DataType.Password)]
         public string password { get; set; }
 
         public string? photo { get; set; }
         public string? phone { get; set; }
+
+        public Boolean actif { get; set; }
 
         public DateTime? creationDate { get; set; }
 
@@ -43,6 +47,7 @@ namespace Koutye.Models
 
         public DateTime? logoutDate { get; set; }
 
+        [ForeignKey("type_id")]
         public virtual TypeUtilisateur? typeUtilisateur { get; set; }
 
         public IEnumerable<Appartement>? appartements { get; set;}
