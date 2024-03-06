@@ -29,25 +29,25 @@ namespace Koutye.Controllers
     public class UtilisateurController : Controller
     {
         KoutyeContext context = new KoutyeContext();
+
         [HttpPost]
         [Route("/user/add")]
         [Produces("application/json")]
         [Consumes("application/json")]
         public Utilisateur AddUser([FromBody] UtilisateurDto util)
         {
-            Console.WriteLine(util.nom);
-            Console.WriteLine(util.prenom);
-            Console.WriteLine(util.username);
-            Console.WriteLine(util.password);
-            Console.WriteLine(util.email);
-            Console.WriteLine(util.phone);
-            Console.WriteLine(util.type);
-            
-            
-            if(ModelState.IsValid) 
+            UtilisateurDaoImpl utilDao = new UtilisateurDaoImpl();
+
+            if (ModelState.IsValid) 
             {
-                UtilisateurDaoImpl utilDao = new UtilisateurDaoImpl();
-                utilDao.addUser(util);
+                if(utilDao.findUtilisateurByUsername(util.username) == null && utilDao.findUtilisateurByEmail(util.email) == null)
+                {
+                    utilDao.addUser(util);
+                }
+                else
+                {
+                    Console.WriteLine("L'utilisateur existe deja");
+                }
             }
             else
             {
@@ -63,6 +63,15 @@ namespace Koutye.Controllers
         {
             FileUpload fileUpload = new FileUpload();
             return fileUpload.uploadPicture(file);
+        }
+
+        [HttpGet]
+        [Route("user")]
+        public Utilisateur findUser(String username)
+        {
+            UtilisateurDaoImpl utilDaoImpl = new UtilisateurDaoImpl();
+
+            return utilDaoImpl.findUtilisateurByUsername(username);
         }
     }
 }

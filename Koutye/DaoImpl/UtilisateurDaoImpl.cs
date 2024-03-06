@@ -22,14 +22,22 @@ namespace Koutye.Dao
             utilisateur.creationDate = DateTime.Now;
             utilisateur.phone = utilisateurDto.phone;
             utilisateur.photo = utilisateurDto.photo;
+            utilisateur.actif = true;
 
             typeUtilisateur = koutyeContext.typeUtilisateur.FirstOrDefault(p=>p.nomType==utilisateurDto.type);
           
             utilisateur.typeUtilisateur = typeUtilisateur;
-            
-            koutyeContext.Add(utilisateur);
-            koutyeContext.SaveChanges();
-            return utilisateurDto;
+            try
+            {
+                koutyeContext.Add(utilisateur);
+                koutyeContext.SaveChanges();
+                return utilisateurDto;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+                return null;
+            }
         }
 
   
@@ -44,14 +52,16 @@ namespace Koutye.Dao
             return BCrypt.Net.BCrypt.Verify(passwordBase, passwordParameter);
         }
 
-        public UtilisateurDto findUtilisateurByEmail(string email)
+        public Utilisateur findUtilisateurByEmail(string email)
         {
-            return null;
+            Utilisateur util = koutyeContext.utilisateur.FirstOrDefault(u => u.email == email);
+            return util;
         }
 
-        public UtilisateurDto findUtilisateurByUsername(string username)
+        public Utilisateur findUtilisateurByUsername(string username)
         {
-            return null;
+            Utilisateur util = koutyeContext.utilisateur.FirstOrDefault(u=> u.username== username);
+            return util;
         }
     }
 }

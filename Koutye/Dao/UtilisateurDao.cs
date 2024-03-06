@@ -9,8 +9,8 @@ namespace Koutye.Dao
         public string cryptPassword(string password);
         public bool verifyPassword(string passwordBase,string passwordParameter);
 
-       public UtilisateurDto findUtilisateurByUsername(string username);
+       public Utilisateur findUtilisateurByUsername(string username);
 
-       public UtilisateurDto findUtilisateurByEmail(string email);
+       public Utilisateur findUtilisateurByEmail(string email);
     }
 }

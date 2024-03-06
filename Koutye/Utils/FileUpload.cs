@@ -10,10 +10,12 @@
             {
                 string fileName = Path.GetFileName(file.FileName);
                 path = "C:\\Koutye_Folder\\Users";
+                
                 using (Stream fileStream = new FileStream(path, FileMode.Open,FileAccess.ReadWrite))
                 {
                     file.CopyToAsync(fileStream);
                 }
+                
             }
 
             return path;
