@@ -63,5 +63,11 @@ namespace Koutye.Dao
             Utilisateur util = koutyeContext.utilisateur.FirstOrDefault(u=> u.username== username);
             return util;
         }
+
+        public int updateprofilePicture(IFormFile file, string username)
+        {
+
+            return 0;
+        }
     }
 }

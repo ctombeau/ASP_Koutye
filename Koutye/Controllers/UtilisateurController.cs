@@ -34,7 +34,7 @@ namespace Koutye.Controllers
         [Route("/user/add")]
         [Produces("application/json")]
         [Consumes("application/json")]
-        public Utilisateur AddUser([FromBody] UtilisateurDto util)
+        public IActionResult AddUser([FromBody] UtilisateurDto util)
         {
             UtilisateurDaoImpl utilDao = new UtilisateurDaoImpl();
 
@@ -42,36 +42,45 @@ namespace Koutye.Controllers
             {
                 if(utilDao.findUtilisateurByUsername(util.username) == null && utilDao.findUtilisateurByEmail(util.email) == null)
                 {
-                    utilDao.addUser(util);
+                   UtilisateurDto utilDto = utilDao.addUser(util);
+                   return Ok(utilDto);
                 }
                 else
                 {
                     Console.WriteLine("L'utilisateur existe deja");
+                    //return Conflict();
+                    return StatusCode(409);
                 }
             }
             else
             {
                 Console.WriteLine("Le modele n'est pas valide");
+                return BadRequest();
             }
             
-            return null;
         }
 
         [HttpGet]
         [Route("/file")]
-        public String uploadFile(IFormFile file)
+        public Task<String> uploadFile(IFormFile file)
         {
             FileUpload fileUpload = new FileUpload();
-            return fileUpload.uploadPicture(file);
+            return fileUpload.uploadFile(file);
         }
 
         [HttpGet]
         [Route("user")]
-        public Utilisateur findUser(String username)
+        public IActionResult findUser(String username)
         {
             UtilisateurDaoImpl utilDaoImpl = new UtilisateurDaoImpl();
+            Utilisateur util = new Utilisateur();
 
-            return utilDaoImpl.findUtilisateurByUsername(username);
+            util = utilDaoImpl.findUtilisateurByUsername(username);
+
+            if (util != null)
+                return Ok(util);
+            else
+                return NotFound();
         }
     }
 }

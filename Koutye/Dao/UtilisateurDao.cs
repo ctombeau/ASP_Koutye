@@ -12,5 +12,7 @@ namespace Koutye.Dao
        public Utilisateur findUtilisateurByUsername(string username);
 
        public Utilisateur findUtilisateurByEmail(string email);
+
+        public int updateprofilePicture(IFormFile file, string username);
     }
 }

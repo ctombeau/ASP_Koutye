@@ -2,6 +2,7 @@
 {
     public class FileUpload
     {
+        /*
         public string uploadPicture(IFormFile file)
         {
             string path = null;
@@ -18,6 +19,15 @@
                 
             }
 
+            return path;
+        }
+        */
+
+        public async Task<string> uploadFile(IFormFile file) 
+        {
+            string path = Path.Combine("C:\\Koutye_Folder\\Users",file.FileName);
+            using var fileStream = new FileStream(path, FileMode.OpenOrCreate);
+            await file.CopyToAsync(fileStream);
             return path;
         }
     }
